@@ -1,0 +1,70 @@
+    /* 1. Reset y Fuente base */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6; /* bg-gray-100 */
+        color: #1f2937; /* text-gray-900 */
+        min-height: 100vh;
+    }
+
+    /* 2. Contenedores y Estructura */
+    .main-app-container {
+        max-width: 1024px; /* max-w-4xl */
+        margin: 0 auto;
+        padding: 1rem; /* p-4 */
+    }
+    @media (min-width: 768px) {
+        .main-app-container {
+            padding: 2rem; /* md:p-8 */
+        }
+    }
+
+     /* 3. Header */
+    .app-header {
+        text-align: center;
+        margin-bottom: 2rem; /* mb-8 */
+        animation: fadeIn 0.5s ease-out;
+    }
+    .main-title {
+        font-size: 2.25rem; /* text-4xl */
+        font-weight: 700; /* font-bold */
+        color: #1f2937; /* text-gray-800 */
+    }
+    .main-title-accent {
+        color: #4f46e5; /* text-indigo-600 */
+    }
+    .subtitle {
+        font-size: 1.125rem; /* text-lg */
+        color: #4b5563; /* text-gray-600 */
+    }
+
+     /* 4. Barra de Búsqueda */
+    .search-form {
+        margin-bottom: 2rem; /* mb-8 */
+    }
+    .search-input {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem; /* rounded-lg */
+        border: 1px solid #d1d5db; /* border-gray-300 */
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-input:focus {
+        outline: none;
+        border-color: #4f46e5; /* focus:ring-indigo-500 */
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4); /* focus:ring-2 focus:ring-indigo-500 */
+    }
+
+    /* 5. Grid de Resultados */
+    .results-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem; /* gap-4 */
+    }
+    @media (min-width: 768px) {
+        .results-grid {
+            grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+        }
+    }
+
