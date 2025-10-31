@@ -11,16 +11,11 @@
 
     $reviews = $negocio->withReviews();
 
-    // Primero administro y pongo todas las reseñas en un solo string
     
-    $allComments = '';
-    foreach($reviews as $r){
-        $allComments .= $r->comment . ". ";
+    if($negocio->actualizarResumenAI()){
+        // Recargo el negocio para obtener el resumen actualizado
+        $negocio = Business::find($id);
     }
-
-
-    $resumenAI = resumirResenas($allComments);
-
 
     incluirTemplate('header');
 
@@ -45,7 +40,7 @@
                 <span class="rating-value">&nbsp;<?php echo $negocio->ratingPromedio(); ?> / 5.0</span>
             </div>
             <p class="summary-text">
-                <?php echo htmlspecialchars($resumenAI); ?>
+                <?php echo htmlspecialchars($negocio->summary); ?>
             </p>
         </div>
 

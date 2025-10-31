@@ -65,8 +65,6 @@ La siguiente fase crítica del proyecto es la **Integración de la API de IA**:
 
 2. **Caching de Resúmenes:** Implementar una columna o tabla para almacenar los resúmenes generados por la IA. Esto es vital para optimizar la velocidad y reducir los costos de las llamadas recurrentes a la API.
 
-3. **CRUD (Creación de Reseñas):** Implementar el formulario para que los usuarios puedan agregar nuevas reseñas a la base de datos, lo que alimentará el modelo de IA.
-
 ---
 
 ## 🧠 AI Integration
@@ -84,6 +82,52 @@ La función principal (`resumirResenas`) se encuentra en `config/huggingface.php
 - Eliminación automática de frases redundantes del modelo (“Summarize the customer reviews…”).
 
 ---
+
+**Caching de Resúmenes:**
+
+Para la realización de esta parte he tenido que modificar la base de datos con tres nuevas variables , una para llevar el total de reviews que tiene dicho engocio que sube y baja según un trigger , luego un actual_reviews , que es el número de reviews que tenía el negocio a la hora de hacer el resumen y una última variable para guardar el resumen de la IA para no gastar más de lo neecsario de la forma:
+
+```
+
+    ALTER TABLE businesses ADD COLUMN summary TEXT DEFAULT NULL;
+    ALTER TABLE businesses ADD COLUMN total_reviews INT DEFAULT 0;
+    ALTER TABLE businesses ADD COLUMN actual_reviews INT DEFAULT 0;
+
+
+    CREATE TRIGGER after_review_insert
+    AFTER INSERT ON reviews
+    FOR EACH ROW
+    BEGIN
+        UPDATE businesses
+        SET total_reviews = total_reviews + 1
+        WHERE id = NEW.business_id;
+    END;
+    //
+
+    DELIMITER ;
+
+    DELIMITER //
+
+    CREATE TRIGGER after_review_delete
+    AFTER DELETE ON reviews
+    FOR EACH ROW
+    BEGIN
+        UPDATE businesses
+        SET total_reviews = total_reviews - 1
+        WHERE id = OLD.business_id;
+    END;
+    //
+
+    DELIMITER ;
+
+```
+
+Así solo se llamrá a la API las veecs que sea necesario de forma que cuando el numero de reviews es distinto al número actual de revies se ejecuta la función llamando ala API otra vez y actualizando la base de datos.
+
+He intentado ajusatr la IA gratis lo mejor que he podido con unamejor habría sido muchisimo más sencillo pero ya está todo terminado.
+
+
+## Importación de datos con Web Scraping 
 
 
 

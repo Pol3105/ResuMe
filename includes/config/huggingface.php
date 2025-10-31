@@ -1,5 +1,5 @@
 <?php
-    define('HF_TOKEN', '');
+    define('HF_TOKEN', '--');
 
     function resumirResenas($reviewsText) {
         // Limpiamos nombres y estrellas para que la IA solo vea los comentarios
@@ -8,7 +8,7 @@
 
         $prompt = "Summarize the following customer reviews in 2-3 sentences. "
         . "Focus on positives, common complaints, and overall sentiment. "
-        . "Only return the summary, do not repeat instructions or labels:\n\n"
+        . "Only return the summary, do not repeat instructions or labels\n\n"
         . $cleanReviews;
 
 
@@ -43,16 +43,14 @@
         $summary = $result[0]['summary_text'] ?? "No se pudo generar resumen.";
 
 
+        // Elimina cualquier instrucción inicial antes del primer comentario real (asumimos que empieza con una letra mayúscula y no es parte de la instrucción)
         $summary = preg_replace(
-            '/^Summarize the customer reviews.*?\.\s*/i',
+            '/^.*?Only return the summary, do not repeat instructions or labels\s*/i',
             '',
             $summary
         );
 
-
-
-
-        return $summary;
+        return trim($summary);
     }
 
 
