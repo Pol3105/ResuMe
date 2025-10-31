@@ -4,6 +4,36 @@
 
 Plataforma web diseñada para transformar la manera en que los usuarios consumen reseñas de negocios locales. En lugar de forzar la lectura de cientos de comentarios, **ResuMe\*** utiliza Inteligencia Artificial (IA) para generar un **resumen conciso y temático** de todas las opiniones de un lugar, destacando rápidamente los puntos fuertes, las críticas recurrentes y el rating promedio real.
 
+## 📂 Estructura del Proyecto ResuMe
+
+La organización de carpetas y archivos de **ResuMe** es la siguiente:
+
+ResuMe/
+│
+├── index.php # Página principal
+├── business.php # Vista de negocio individual
+├── includes/ # Archivos de configuración y utilidades
+│ ├── app.php # Carga inicial de clases y configuración
+│ └── config/
+│ └── huggingface.php # Configuración y funciones para la IA
+│
+├── class/ # Clases PHP del proyecto
+│ ├── Business.php # Clase Business
+│ └── Reviews.php # Clase Reviews
+│
+├── css/ # Archivos de estilos
+│ └── styles.css # Estilos principales
+│
+└── vendor/ # Dependencias externas (si se usan)
+
+
+### Notas importantes
+
+- La carpeta `includes/config/huggingface.php` contiene toda la lógica de conexión con la API de Hugging Face.
+- Las clases `Business` y `Reviews` manejan la interacción con la base de datos.
+- Las vistas (`index.php` y `business.php`) se encargan de mostrar la información al usuario.
+- La estructura permite **extender el proyecto fácilmente**, por ejemplo añadiendo más APIs o funcionalidades.
+
 ## 🎯 Motivation and Challenge
 
 Este proyecto tiene como propósito principal demostrar la capacidad de integrar servicios complejos de manera efectiva. El objetivo es crear un producto visible y funcional que exhiba la aplicación práctica de:
