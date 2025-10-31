@@ -25,7 +25,7 @@
             <header class="app-header">
                 <!-- Título estilizado con clase semántica -->
                 <h1 class="main-title">Resu<span class="main-title-accent">Me</span></h1>
-                <p class="subtitle">Tu asistente de reseñas inteligente</p>
+                <p class="subtitle">Your Smart Review Assistant</p>
             </header>
 
             <!-- Barra de búsqueda estilizada -->
@@ -34,7 +34,7 @@
                     type="search" 
                     name="search" 
                     value="<?php echo htmlspecialchars($searchTerm); ?>"
-                    placeholder="Busca un negocio por nombre o categoría..." 
+                    placeholder="Search for a business by name or category..." 
                     class="search-input"
                 >
             </form>
@@ -65,7 +65,7 @@
                 <?php else: ?>
                     <!-- Mensaje de no resultados -->
                     <p class="no-results">
-                        No se encontraron negocios para "<?php echo htmlspecialchars($searchTerm); ?>".
+                        No results found for "<?php echo htmlspecialchars($searchTerm); ?>".
                     </p>
                 <?php endif; ?>
 

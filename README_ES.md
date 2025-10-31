@@ -67,4 +67,23 @@ La siguiente fase crítica del proyecto es la **Integración de la API de IA**:
 
 3. **CRUD (Creación de Reseñas):** Implementar el formulario para que los usuarios puedan agregar nuevas reseñas a la base de datos, lo que alimentará el modelo de IA.
 
+---
+
+## 🧠 AI Integration
+
+El sistema cuenta con una conexión establecida con la API de **Hugging Face**, utilizando el modelo:
+
+> **`philschmid/bart-large-cnn-samsum`**
+
+Este modelo gratuito permite generar resúmenes de texto, aunque **no alcanza el nivel de precisión de los modelos premium**, su integración demuestra la funcionalidad completa del flujo **(extracción de reseñas → envío a IA → retorno de resumen procesado)**.
+
+La función principal (`resumirResenas`) se encuentra en `config/huggingface.php` e implementa:
+- Limpieza de texto previo al envío.
+- Conexión mediante `cURL` con la API de Hugging Face.
+- Procesamiento del JSON devuelto.
+- Eliminación automática de frases redundantes del modelo (“Summarize the customer reviews…”).
+
+---
+
+
 
