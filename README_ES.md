@@ -8,6 +8,8 @@ Plataforma web diseñada para transformar la manera en que los usuarios consumen
 
 La organización de carpetas y archivos de **ResuMe** es la siguiente:
 
+```
+
 ResuMe/
 │
 ├── index.php # Página principal
@@ -26,6 +28,7 @@ ResuMe/
 │
 └── vendor/ # Dependencias externas (si se usan)
 
+```
 
 ### Notas importantes
 
