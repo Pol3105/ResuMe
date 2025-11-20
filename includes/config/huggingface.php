@@ -1,5 +1,5 @@
 <?php
-    define('HF_TOKEN', '--');
+    define('HF_TOKEN', 'PEGA_TU_API_KEY_AQUI');
 
     function resumirResenas($reviewsText) {
         // Limpiamos nombres y estrellas para que la IA solo vea los comentarios
