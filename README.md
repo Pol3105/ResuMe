@@ -57,14 +57,3 @@ ON DELETE CASCADE
 
 ```
 
-## 📝 Next Steps
-
-La siguiente fase crítica del proyecto es la **Integración de la API de IA**:
-
-1. **Integración con Hugging Face:** Desarrollar la lógica PHP (o un endpoint) para agrupar todas las reseñas de un negocio, enviarlas a la API de Hugging Face y procesar el resumen resultante.
-
-2. **Caching de Resúmenes:** Implementar una columna o tabla para almacenar los resúmenes generados por la IA. Esto es vital para optimizar la velocidad y reducir los costos de las llamadas recurrentes a la API.
-
-3. **CRUD (Creación de Reseñas):** Implementar el formulario para que los usuarios puedan agregar nuevas reseñas a la base de datos, lo que alimentará el modelo de IA.
-
-
