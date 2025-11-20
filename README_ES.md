@@ -160,7 +160,4 @@ Así solo se llamrá a la API las veecs que sea necesario de forma que cuando el
 He intentado ajusatr la IA gratis lo mejor que he podido con unamejor habría sido muchisimo más sencillo pero ya está todo terminado.
 
 
-## Importación de datos con Web Scraping 
-
-
 
