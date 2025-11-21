@@ -1,4 +1,5 @@
 # 📚 ResuMe
+![Demo de la aplicación ResuMe](Readme.gif)
 
 ## 💡 Project Overview
 
