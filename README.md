@@ -2,58 +2,54 @@
 
 ## 💡 Project Overview
 
-Plataforma web diseñada para transformar la manera en que los usuarios consumen reseñas de negocios locales. En lugar de forzar la lectura de cientos de comentarios, **ResuMe\*** utiliza Inteligencia Artificial (IA) para generar un **resumen conciso y temático** de todas las opiniones de un lugar, destacando rápidamente los puntos fuertes, las críticas recurrentes y el rating promedio real.
+A web platform designed to transform the way users consume local business reviews. Instead of forcing users to read hundreds of comments, **ResuMe\*** uses Artificial Intelligence (AI) to generate a **concise, thematic summary** of all opinions about a location, quickly highlighting the strong points, recurring criticisms, and the actual average rating.
 
 ## 🎯 Motivation and Challenge
 
-Este proyecto tiene como propósito principal demostrar la capacidad de integrar servicios complejos de manera efectiva. El objetivo es crear un producto visible y funcional que exhiba la aplicación práctica de:
+The primary purpose of this project is to demonstrate the ability to effectively integrate complex services. The goal is to create a visible and functional product that showcases the practical application of:
 
-1. **Integración de APIs:** Conexión con servicios externos para la importación de datos (reseñas).
+1. **API Integration:** Connecting with external services for data import (reviews).
 
-2. **Procesamiento de Lenguaje Natural (PLN):** Uso de una API de IA (Hugging Face) para realizar el resumen automático de grandes volúmenes de texto.
+2. **Natural Language Processing (NLP):** Using an AI API (Hugging Face) to perform the automatic summarization of large volumes of text.
 
 ## ⚙️ Technology Stack
 
-| Componente | Tecnología | Propósito | 
- | ----- | ----- | ----- | 
-| **Backend/API** | PHP (Estructura de Clases) | Lógica de servidor y manejo de datos, clases `Business` y `Review`. | 
-| **Frontend** | PHP/HTML | Renderizado de vistas y lógica de presentación. | 
-| **Styling** | CSS con Clases Semánticas | Diseño responsive, limpio y coherente (basado en principios de Tailwind). | 
-| **Database** | MySQL/MariaDB | Almacenamiento persistente de negocios y reseñas. | 
-| **Artificial Intelligence** | Hugging Face API | Generación del resumen de texto (PLN). | 
+| Component | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Backend/API** | PHP (Class Structure) | Server logic and data handling, utilizing `Business` and `Review` classes. |
+| **Frontend** | PHP/HTML | Rendering of views and presentation logic. |
+| **Styling** | CSS with Semantic Classes | Responsive, clean, and consistent design (based on Tailwind principles). |
+| **Database** | MySQL/MariaDB | Persistent storage for businesses and reviews. |
+| **Artificial Intelligence** | Hugging Face API | Text summary generation (NLP). |
 
 ## 🚀 Current Status (MVP)
 
 ### Structure and Aesthetics
 
-El proyecto cuenta con una estructura de clases PHP bien definida que simula la interacción con la base de datos. El diseño responsive para las dos vistas clave (`index.php` y `business.php`) está completamente implementado, asegurando una estética profesional y una buena experiencia de usuario.
+The project features a well-defined PHP class structure that simulates interaction with the database. The responsive design for the two key views (`index.php` and `business.php`) is fully implemented, ensuring a professional aesthetic and a good user experience.
 
 ### Database Schema (SQL)
 
-Se han definido dos tablas esenciales para el funcionamiento del MVP:
+Two essential tables have been defined for the functionality of the MVP:
 
-```
-
-\-- Table for the businesses
+```sql
+-- Table for the businesses
 CREATE TABLE businesses (
-id INT AUTO\_INCREMENT PRIMARY KEY,
+id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(100) NOT NULL,
 category VARCHAR(50) NOT NULL
 );
 
-\-- Table for the reviews
+-- Table for the reviews
 CREATE TABLE reviews (
-id INT AUTO\_INCREMENT PRIMARY KEY,
-business\_id INT NOT NULL,
-user\_name VARCHAR(100) NOT NULL,
+id INT AUTO_INCREMENT PRIMARY KEY,
+business_id INT NOT NULL,
+user_name VARCHAR(100) NOT NULL,
 rating TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
 comment TEXT NOT NULL,
-created\_at TIMESTAMP DEFAULT CURRENT\_TIMESTAMP,
-CONSTRAINT fk\_business
-FOREIGN KEY (business\_id)
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT fk_business
+FOREIGN KEY (business_id)
 REFERENCES businesses(id)
 ON DELETE CASCADE
 );
-
-```
-
