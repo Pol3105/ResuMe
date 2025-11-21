@@ -123,4 +123,8 @@ To implement this feature, I modified the database with three new variables: one
 
 ```
 
+This ensures the API is only called when strictly necessary. Whenever the total number of reviews differs from the `actual_reviews` count, the function triggers a new API call to regenerate the summary and updates the database.
+
+I have tuned the free AI model as best as I could. While a premium model would have made the process much simpler, the project is now fully complete.
+
 
