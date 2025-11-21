@@ -1,5 +1,7 @@
 # 📚 ResuMe
 
+![Demo de la aplicación ResuMe](Readme.gif)
+
 ## 💡 Project Overview
 
 Plataforma web diseñada para transformar la manera en que los usuarios consumen reseñas de negocios locales. En lugar de forzar la lectura de cientos de comentarios, **ResuMe\*** utiliza Inteligencia Artificial (IA) para generar un **resumen conciso y temático** de todas las opiniones de un lugar, destacando rápidamente los puntos fuertes, las críticas recurrentes y el rating promedio real.
